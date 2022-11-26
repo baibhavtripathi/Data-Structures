@@ -1,4 +1,4 @@
-package ai.tribty;
+package ai.tribty.linkedlist;
 
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -203,7 +203,7 @@ public class LinkedList <T> implements Iterable <T> {
         return remove(trav);
     }
 
-    pu
+
 
    /**
      * Returns an iterator over elements of type {@code T}.
@@ -223,7 +223,7 @@ public class LinkedList <T> implements Iterable <T> {
      * caller.
      * <p>
      * The behavior of this method is unspecified if the action performs
-     * side-effects that modify the underlying source of elements, unless an
+     * side effects that modify the underlying source of elements, unless an
      * overriding class has specified a concurrent modification policy.
      *
      * @param action The action to be performed for each element
