@@ -1,4 +1,4 @@
-package ai.tribty.Array;
+package ai.tribty.array;
 
 import java.util.Iterator;
 
