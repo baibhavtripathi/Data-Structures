@@ -43,6 +43,22 @@ public class Array <T> implements Iterable <T> {
     }
 
     public void add(T element) {
+        checkCapacity();
+        arr[length++] = element;
+    }
+
+    public void insertAt(int index, T data) {
+        if (index < 0 || index >= capacity)
+            throw new IndexOutOfBoundsException();
+        checkCapacity();
+        for (int i = length; i >= index; i--) {
+            arr[i] = arr[i-1];
+        }
+        arr[index] = data;
+        length++;
+    }
+
+    private void checkCapacity() {
         // Need to re-size
         if (length+1 >= capacity) {
             if (capacity == 0)  capacity = 1;
@@ -51,7 +67,6 @@ public class Array <T> implements Iterable <T> {
             if (length >= 0) System.arraycopy(arr, 0, temp, 0, length);
             arr =temp;
         }
-        arr[length++] = element;
     }
 
     public T removeAt(int index) {
@@ -68,11 +83,10 @@ public class Array <T> implements Iterable <T> {
     }
 
     public boolean remove(T object) {
-        for (int i = 0; i < length; i++) {
-            if (Objects.equals(arr[i], object)) {
-                removeAt(i);
-                return true;
-            }
+        int index = indexOf(object);
+        if (index != -1) {
+            removeAt(index);
+            return true;
         }
         return false;
     }
@@ -93,7 +107,7 @@ public class Array <T> implements Iterable <T> {
      */
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
+        return new Iterator<>() {
             int index = 0;
             @Override
             public boolean hasNext() {
@@ -174,9 +188,9 @@ public class Array <T> implements Iterable <T> {
         if (length == 0)    return "[]";
         else {
             StringBuilder sb = new StringBuilder(length).append("[");
-            for (T ele : arr) {
-                if (ele == arr[length-1])   sb.append(ele).append("]");
-                else sb.append(ele).append(", ");
+            for (int i = 0; i < length; i++) {
+                if (i == length-1)   sb.append(arr[i]).append("]");
+                else sb.append(arr[i]).append(", ");
             }
             return sb.toString();
         }
