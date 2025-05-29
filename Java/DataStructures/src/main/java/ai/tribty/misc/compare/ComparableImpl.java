@@ -2,6 +2,7 @@ package ai.tribty.misc.compare;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 record SuperHero(String id, String name, int age) implements Comparable<SuperHero> {
@@ -24,7 +25,8 @@ record SuperHero(String id, String name, int age) implements Comparable<SuperHer
         superHeroes.add(new SuperHero("1", "Captain America", 25));
         superHeroes.add(new SuperHero("3", "Hulk", 20));
 
-        Collections.sort(superHeroes);
+        // Collections.sort(superHeroes);
+        superHeroes.sort(Comparator.reverseOrder());
         /* printing result */
         for (SuperHero superHero : superHeroes) {
             System.out.println(superHero.toString());
