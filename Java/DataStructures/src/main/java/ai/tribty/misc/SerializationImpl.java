@@ -61,7 +61,7 @@ class DataToSerialize implements Serializable {
 
     @Override
     public String toString() {
-        return "DataToSerialize [name=" + name + ", id=" + id + "]";
+        return "DataToSerialize [name=" + name + ", id=" + id + ", password=" + password + "]";
     }
 
     
