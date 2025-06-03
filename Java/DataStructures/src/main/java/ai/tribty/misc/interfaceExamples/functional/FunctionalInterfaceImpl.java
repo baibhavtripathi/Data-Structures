@@ -10,7 +10,7 @@ interface FunctionalInterfaceExample {
         return "This is default method...";
     }
 
-    // For Utility and helper function, can be called directly using Interface name; implementation not needed
+    // For Utility and helper function, can be called directly using Interface name; implementation not needed 
     public static void Khandan() {
         System.out.println("Bade baap ki aulad.");
     }
